@@ -168,7 +168,10 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
-
+*.csv
+photos/
+session_name.session
+session_name.session-journal
 # Logs
 logs/
 *.log

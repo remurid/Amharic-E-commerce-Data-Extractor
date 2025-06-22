@@ -1,1 +1,5 @@
 # Add your project dependencies here
+python-dotenv
+telethon
+pandas
+re 
