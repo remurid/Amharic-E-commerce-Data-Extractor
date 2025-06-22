@@ -32,11 +32,9 @@ def clean_text(text):
     text = re.sub(r't\.me\/\S+', '', text)
 
     # 3. Remove mentions and hashtags (e.g., @username, #sale)
-    # Note: If you later decide to extract CONTACT_INFO like usernames, you'll need to adjust this.
     text = re.sub(r'@\w+|#\w+', '', text)
 
     # 4. Remove unwanted characters.
-    # This regex now KEEPS Amharic, English (a-z), numbers, and basic punctuation.
     text = re.sub(r'[^\u1200-\u137fa-z\d\s።፡,.]', '', text)
 
     # 5. Remove extra whitespace, newlines, and tabs
@@ -47,7 +45,6 @@ def clean_text(text):
 
 # 1. Load Data
 try:
-    # Make sure to use your actual file name
     df = pd.read_csv('telegram_data.csv') 
     print("Successfully loaded data.")
 except FileNotFoundError:
@@ -62,7 +59,7 @@ df['processed_text'] = df['Message Text'].fillna('').astype(str)
 print("Normalizing text...")
 df['processed_text'] = df['processed_text'].apply(normalize_amharic)
 
-# 4. Apply Cleaning (the new and improved function)
+# 4. Apply Cleaning 
 print("Cleaning text (now keeping English)...")
 df['processed_text'] = df['processed_text'].apply(clean_text)
 
