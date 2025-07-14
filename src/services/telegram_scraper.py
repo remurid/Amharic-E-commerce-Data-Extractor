@@ -23,8 +23,8 @@ async def scrape_channel(client, channel_username, writer, media_dir):
 
             await client.download_media(message.media, media_path)
 
-
-        writer.writerow([channel_title,channel_username,message.id, message.message, message.date, media_path])
+        view = getattr(message, 'views', None)
+        writer.writerow([channel_title,channel_username,message.id, message.message, message.date, media_path,view])
 
 client = TelegramClient('session_name', TELEGRAM_API_ID, TELEGRAM_API_HASH)
 
@@ -37,7 +37,7 @@ async def main():
 
     with open('telegram_data.csv', 'w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['Channel Title', 'Channel Username', 'Message ID', 'Message Text', 'Date', 'Media Path'])
+        writer.writerow(['Channel Title', 'Channel Username', 'Message ID', 'Message Text', 'Date', 'Media Path','View Count'])
 
         channels = [
             '@qnashcom',

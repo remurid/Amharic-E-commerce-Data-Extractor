@@ -172,6 +172,7 @@ data/processed/*
 photos/
 session_name.session
 session_name.session-journal
+*.txt
 # Logs
 logs/
 *.log
