@@ -1,0 +1,12 @@
+# Placeholder for manually labeled CoNLL-format data
+# Add your labeled data here in the format:
+# token\tNER-tag
+# Example:
+# ዋጋ    B-PRICE
+# 1000   I-PRICE
+# ብር    I-PRICE
+# በ     O
+# አዲስ   B-LOC
+# አበባ  I-LOC
+# Baby   B-Product
+# bottle I-Product 
